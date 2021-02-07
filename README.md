@@ -6,4 +6,4 @@
   esses estudos desorganizados. 
 </p>
 
-<h5> connect with me: [mauroodesenvolvedor@gmail.com](mailto:mauroodesenvolvedor@gmail.com) </h5>
+<h5> connect with me: mauroodesenvolvedor@gmail.com </h5>
