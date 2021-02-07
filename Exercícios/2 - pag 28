@@ -1,0 +1,39 @@
+1 - como os inteiros são armazenados no computador?
+eles são armazenados dentro da memória RAM na hora da execução do programa. Ele ocupa um espaço
+dentro da memória que é determinado pelo programador na hora de fazer o código fonte ou pelo
+compilador caso o programador não quis especificar a quantidade de bits que o inteiro ia armazenar
+na RAM.
+
+2 - dada a  fórmula: B^i - 1 = maior número de i dígitos de base B; calcule qual o maior digito número 
+em binário que tem 8 digitos.
+B = binário (ou seja, 2)
+i = index, que no caso é 8
+portanto:
+
+2^8 - 1 = 256 - 1 = 255
+
+Convertendo 255 para binário, temos 11111111. Que é o maior número de 8 digitos possível na base binária.
+
+3 - escreva um programa que computa 32.132 X 42.452 e mostra no terminal.
+    package main
+    import "fmt"
+
+    func main() {
+        var res float64 = 32.132 * 42.452;
+        fmt.Println(res)
+    }
+
+4 - o que é uma string? como você acha o tamanho de uma?
+Uma string é um conjunto de caracteres utilizado para representar texto. Utilizando a operação:
+    len("string qualquer")
+
+podemos ter como resultado a quantidade de digitos que essa "string qualquer" tem e, como espaços em
+branco são considerados caracteres eles também entrarão pra conta.
+
+5 - qual o resultado da expressão:
+(true && false) || (false && true) || !(false && false)
+(true && false) -> false
+(false && true) -> false
+!(false && false) -> true
+
+o valor da expressão (true && false) || (false && true) || !(false && false) é true.

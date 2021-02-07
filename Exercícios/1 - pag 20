@@ -1,0 +1,37 @@
+1 - o que são espaços em branco?
+caracteres que são invisíveis para o programador, eles são utilizados apenas para organização
+do texto/código e em praticamente todas as linguagens são totalmente/parcialmente ignorados.
+
+2 - O que é um comentário?
+Linha ou linhas de código escritas dentro de um programa que serão completamente ignoradas pelo
+compilador/interpretador da linguagem. Eles são utilizados para fazer anotações pequenas dentro
+do código e são uteis para pair programming e lembrar o que você está fazendo.
+
+3 - nosso programa em Go começa com package main, como os programas dentro de fmt começariam?
+Eles podem começar com literalmente qualquer nome de pacote, pode ser até mesmo "package minha_rola",
+mas isso não importa, provavelmente eles estariam como "package" + nome do arquivo.
+
+Por exemplo: se no nome do programa for server.go então ele provavelmente começaria com "package server"
+
+4 - nós usamos Println de fmt, se quiséssemos usar Exit dentro de "os", como faríamos?
+    package nome_do_pacote
+    import (
+        "fmt",
+        "os"
+    )
+
+    func main() {
+        fmt.Println("Println só pra decorar")
+        os.Exit()
+    }
+
+5 - modifique o programa main.go para escrever o seu nome em vez de "hello world"
+
+    package main
+
+    import "fmt"
+
+    func main() {
+        var name string = "Mauro Torres"
+        fmt.Printf("Meu nome é %s", name)
+    }

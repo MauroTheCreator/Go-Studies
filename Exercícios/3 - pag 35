@@ -1,0 +1,53 @@
+1 - Quais são as duas maneiras de criar uma nova variável?
+
+    var variavel tipo = valor
+    variavel := valor
+    var variavel = valor
+
+2 - Qual o valor de x depois de rodar: x := 5; x += 1;
+
+6
+
+3 - O que é escopo? Como você determina o escopo de uma variável em Go?
+
+Escopo é o nome dado para a limitação dos lugares onde uma variável pode ou não ser usada. Variáveis
+declaradas fora de todas as funções podem ser usadas em basicamente todo o programa (código fonte), por
+isso elas são globais, variáveis locais não podem ser usadas em todo o código e são declaradas dentro de
+blocos de códigos de funções ou estruturas, etc.
+
+4 - Qual a diferença entre var e const?
+
+var é a palavra chave para declarar variáveis, variáveis são mutáveis. const é a palavra chave para
+declarar constantes, e elas não são mutáveis. Então a diferença entre var e const é que const é imutável
+e var não.
+
+5 - Escreva um programa que transforma fahrenheit em celsius.
+
+    package main
+
+    import "fmt"
+
+    func main() {
+        var input float64 // entrada do usuário
+        
+        fmt.Scanf("%f", &input) // usuário coloca os dados no programa
+        var result float64 = (input - 32) * 5 / 9
+
+        fmt.Printf("%f fahr == %f celsius", input, result)
+
+    }
+
+6 - Agora faça um programa que converte pés para metros.
+
+    package main
+
+    import "fmt"
+
+    func main() {
+        var input float32
+
+        fmt.Scanf("%f", &input)
+        var result = input / 3.281
+
+        fmt.Printf("%f feets == %f metters", input, result)
+    }
