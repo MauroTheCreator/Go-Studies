@@ -1,0 +1,62 @@
+DEFER
+
+Go tem um comando especial chamado defer, que agenda uma chamada de função para rodar quando a função acabar, considere
+o seguinte exemplo:
+
+    func first() {
+        fmt.Println("1st")
+    }
+
+    func second() {
+        fmt.Println("2nd")
+    }
+    
+    func main() {
+        defer second()
+        first()
+    }
+
+Esse programa printa "1st" e depois "2nd", basicamente defer manda a chamada da função para o fina
+da função em execução.
+
+Defer é comummente usada pra liberar recursos de alguma forma, por exemplo, quando abrimos um arquivo e queremos
+ter certeza de que ele vai ser fechado, utilizamos defer assim:
+
+    f, _ := os.Open(filename)
+    defer f.Close()
+
+O comando defer tem 3 vantagens:
+1. Deixa o f.Close() perto do os.Open(), então é mais fácil de entender que abrimos um arquivo e logo
+   depois "agendamos" o fechamento do mesmo.
+
+2. Se nossa função tem várias declarações de retorno (talvez uma dentro de um if e outra dentro de um else) então
+   f.Close rodaria antes dessas declarações.
+
+3. Funções defer são rodadas mesmo se um erro de tempo de execução ocorrer.
+
+PANIC E RECOVER
+
+A função built-in "panic" consegue causar um erro runtime. Nós conseguimos lidar com um runtime panic utilizando
+a função built-in "recover". recover para o panic e retorna o valor que foi passado para panic. Nós pensamos de 
+começo que podemos lidar com um panic assim:
+
+    func main() {
+        panic("PANIC")
+        str := recover() // isso nunca vai acontecer
+        fmt.Println(str)
+    }
+
+O problema é que aqui a função main vai ser parada e o programa também, então o recover não vai sequer ser chamado. Em vez
+disso, precisamos "igualar" a chamada desses dois usando defer:
+
+    func main() {
+        defer func() {
+            str := recover()
+            fmt.Println(str)
+        }()
+
+        panic("PANIC")
+    }
+
+Um panic geralmente tenta avisar o programador sobre algum erro ou uma condição excepcional que não tem forma de
+se recuperar dela de forma fácil (daí o nome panic)

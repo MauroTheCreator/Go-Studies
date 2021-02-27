@@ -1,0 +1,33 @@
+1. Como você acessa o quarto elemento de uma array ou slice?
+    identificador[3]
+
+2. Qual o tamanho de um slice criado com make([]int, 3, 9)?
+    O slice tem o tamanho de 3 até o 9, ou 9 - 3, isso significa que
+    o slice tem o tamanho de 6
+
+3. Dada a array x := [6]string{"a","b","c","d","e","f"}, o slice x[2:5] retornaria o que?
+    {c d e}
+
+4. Escreva um programa que ache o menor número nessa lista:
+    x := []int{
+        48,96,86,68,
+        57,82,63,70,
+        37,34,83,27,
+        19,97, 9,17,
+    }
+RESPOSTA:
+
+    func main() {
+        x := []int{
+            48,96,86,68,
+            57,82,63,70,
+            37,34,83,27,
+            19,97, 9,17,
+        }
+        menor := x[0]
+        for _, value := range x {
+            if value < menor { menor = value }
+        }
+        fmt.Println(menor)
+    }
+

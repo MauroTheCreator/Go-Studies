@@ -1,0 +1,63 @@
+PONTEIROS
+
+Ponteiros são familiares para quem trabalha com C/C++, eles são endereços da memória que apontam pra outro endereço
+dentro da memória. Para utilizarmos ponteiros em Go utilizamos a mesma notação que o C, veja:
+
+    func zero(x int) {
+        x = 0
+    }
+
+    func main() {
+        x := 10
+        zero(x)
+        fmt.Println(x) // o valor de x não mudou
+    }
+
+Esse código não é eficaz pois a função zero() não consegue modificar a variável x fora da função, ou seja, ela não
+consegue realmente mudar o valor do argumento passado para ela. Porém, para resolvermos esse problema utilizamos
+ponteiros:
+
+    func zero(xPtr *int) {
+        *xPtr = 0
+    }
+
+    func main() {
+        x := 10
+        zero(&x)
+        fmt.Println(x)
+    }
+
+Ponteiros referenciam a localidade da memória onde uma variável é armazenada mais do que o valor da variável em si.
+Então, por guardar o endereço de memória da variável, o modificando o conteúdo dentro desse ponteiro conseguimos
+modificar o conteúdo dentro da variável original, isso é o que eu chamo de low-level information exchanging.
+
+OS OPERADORES * E &
+
+Em Go, um ponteiro é representado usando um asterisco, seguido pelo tipo do valor armazenado. Na função zero(), xPtr é
+um ponteiro pra inteiro. Nós também usamos o asterisco pra conseguir acessar os valores armazenados, usamos: *xPtr = 0
+pois xPtr é um *int e então ele só aceitaria um outro *int, porém, *xPtr é um int e ele aceita outro dado int.
+
+Por fim, nós usamos o e comercial (&) pra nos referir ao endereço de uma variável. &x retorna um ponteiro pra inteiro
+pois o tipo de dado armazenado dentro de x é um inteiro. Isso nos permite modificar o valor original da variável. &x
+em main() e xPtr em zero() estão se referindo à mesma localização na memória.
+
+NEW
+
+Outra forma de conseguir um ponteiro é utilizando a função built-in new. Veja:
+
+    func one(xPtr *int) {
+        *xPtr = 1
+    }
+
+    func main() {
+        xPtr := new(int)
+        one(xPtr)
+        fmt.Println(xPtr)
+    }
+
+A função new pega um tipo como argumento, aloca memória suficiente pra armazenar um valor daquele tipo e retorna um
+ponteiro para ele. Em algumas linguagens de programação existe uma diferença enorme entre usar new e &, mas em
+Go você não precisa se preocupar com isso, é uma linguagem que possui garbage collector.
+
+Ponteiros são raramente usados com tipos primitivos do Go, mas são extremamente poderosos principalmente quando
+utilizados com estruturas (structs).

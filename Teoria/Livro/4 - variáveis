@@ -1,0 +1,80 @@
+Até agora só vimos programas com valores literais, mas programas assim não são realmente úteis.
+
+Papo do que é variável e tal, a forma das variáveis em Go é assim:
+
+    var identificador tipo (= valor)
+
+Podemos ver que o operador de atribuição em Go é =
+Qualquer operação que podemos fazer com literais podemos fazer com variáveis, pois as mesmas são literais
+com identificadores.
+
+Go também aceita a forma curta de declaração de variável, mas ela precisa vir com um valor, a forma é
+a seguinte:
+
+    x := valor
+
+O tipo do valor será definido pelo próprio compilador Go, você também pode fazer assim:
+
+    var x = valor
+
+As três formas de declaração funcionam, a diferença é que em uma você declara um tipo e nas outras o 
+compilador coloca um tipo na variável automaticamente. E geralmente programadores Go mais experientes
+usam a sintaxe mais curta, isso é: x := valor;
+
+O : antes do = na 2ª forma de declaração representa que x é uma variável, sem esse sinal essa sintaxe não
+funcionaria pois o compilador identificaria aquilo como operação de atribuição de valor à uma variável
+já existente e retornaria erro, pois a variável não existe.
+
+A linguagem Go também tem suporte para constantes, ou seja, usando a sintaxe:
+
+    const nome tipo = valor
+
+Você pode declarar uma constante com qualquer sintaxe, menos a mais curta. Pois, você sempre precisará
+identificar que aquilo é uma constante com a palavra chave const, caso contrário você criará uma variável.
+
+ESCOPO DE VARIÁVEIS
+
+Agora que sabemos sobre tipos e como declarar uma variável, podemos começar a falar sobre escopo de
+variáveis.
+
+Variáveis fora de qualquer função são variáveis globais, elas não podem ser declaradas com a sintaxe
+
+    variavel := valor
+
+Elas tem que ser declaradas com a primeira ou a última sintaxe mostradas.
+
+Para mais regras sobre escopo de Go, veja: https://www.tutorialspoint.com/go/go_scope_rules.htm
+
+
+DEFININDO MÚLTIPLAS VARIÁVEIS OU CONSTANTES.
+
+Podemos declarar mútiplas variáveis ou constantes usando a sintaxe:
+
+    var (
+        nome1 = valor1
+        nome2 = valor2
+        ...
+    )
+
+Caso você queira constantes ao invés de variáveis, utilize a palavra const ao invés de var. Obviamente
+você pode declarar variáveis e constantes na mesma linha com a sintaxe:
+
+    const nome1 (= valor1), nome2 (= valor2) ...
+
+Mas comummente você verá a primeira forma ao invés da segunda.
+
+Um programa de exemplo que, pega o número inserido pelo usuário e mostra seu dobro na tela.
+
+    package main
+
+    import "fmt"
+
+    func main() {
+        var input float64
+        fmt.Scanf("%f", &input)
+        fmt.Printf("%f", input * 2)
+    }
+
+Podemos perceber que a função Scanf() é a função que pega dados do usuário, e temos esse &input (que é
+o endereço na memória da variável input), mas isso nós veremos depois.
+

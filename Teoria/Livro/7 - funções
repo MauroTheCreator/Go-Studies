@@ -1,0 +1,86 @@
+Funções são blocos de código que retornam algo ou fazem uma tarefa que será repetida várias vezes no programa, você provavelmente já sabe
+o que são funções então eu nem vou explicar direito, vamos direto ao que interessa.
+
+Nos programas que escrevemos anteriormente, usamos apenas uma função, a função main(). Nós vamos começar a escrever programas com mais de 
+uma função agora.
+
+Na linguagem Go, funções seguem o mesmo padrão de declaração das variáveis, elas começam com a palavra chave func seguindo de seu identificador
+e logo depois da lista de argumentos adicionamos o tipo de dado que a função retorna.
+
+    func soma(a, b int) int { return a + b }
+
+Os argumentos de uma função tem que ter um tipo dentro de Go, podemos declarar o tipo de cada argumento ou declarar todos os argumentos
+como sendo do mesmo tipo, veja:
+
+    ao invés de fazer soma(a int, b int) podemos fazer
+    soma(a, b int)
+
+Obviamente, caso você tenha argumentos de tipos diferentes é melhor usar a declaração de tipo individual. Logo após a declaração da função
+você pode começar a escrever seu código dentro das chaves. 
+
+Mas antes de começar a usar as funções de verdade, precisamos deixar claro algumas coisas:
+
+1. Funções não tem acesso à nada da função que a chamou, só se deixarmos explícito. Isso não irá funcionar
+
+    func f() { fmt.Println(x) }
+    func main() {
+        x := 5
+        f()
+    }
+  Nós precisamos passar o valor para essa função ou deixar a variável x como uma variável global, caso contrário ela retornará
+  um erro de UndefinedName.
+
+2. Em Go, as funções são chamadas em uma stack de funções. Levemos o exemplo a seguir:
+
+    func main() { fmt.Println(f1()) }
+    func f1() int { return f2() }
+    func f2() int { return 1 }
+
+  Primeiro, a função f1 será chamada e colocada numa posição acima de main() na stack de chamada de funçõs, depois f2 será chamada e
+  terá uma posição acima de f1() na stack de funções. Quando f2 retorna um valor, f2 é removida da stack de funções em execução e assim
+  por diante.
+
+
+FUNÇÕES VARIADICAS
+
+Funções variadicas são uma forma específica de declarar funções quando você não sabe quantos argumentos serão passados para ela em
+cada chamada. Vamos levar o exemplo seguinte em consideração:
+
+    func add(args ...int) int {
+        total := 0
+        for _, v := range args {
+            total += v
+        }
+        return total
+    }
+
+    func main() { fmt.Println(add(1, 2, 3, 4, 5)) }
+
+Nesse exemplo, add() pode somar vários argumentos desde que sejam inteiros, esse comportamento é conhecido como argumento variadico.
+Usando a elipse (...) antes do tipo dos argumentos. Assim, a função terá como valor de entrada um slice (lista) e será tratada como
+tal dentro do código da função.
+
+As funções variadicas aceitam um número indefinido de argumentos. Se você tem vários argumentos em um slice para passar para a função
+então passe com o formato f(slice...)
+
+MULTIPLOS VALORES DE RETORNO
+
+Quando queremos retornar vários valores, precisamos declarar qual o tipo de cada valor que a função vai retornar, fazemos dessa forma:
+
+    func listate(list ...int) (int, int) {
+        total, index := 0, 0
+
+        for _, value := range list {
+            total += value
+	        index++
+        }
+        return index, total
+    }
+
+    func main() {
+        quantidade, soma := listate(1, 2, 3, 4, 5)
+        fmt.Printf("Você inseriu %d argumentos e a soma deles é %d", quantidade, soma)
+    }
+
+Repare que o tipo de retorno logo depois da lista de argumentos agora tem dois tipos dentro de um parênteses, isso é para
+identificar que a função tem 2 valores de retorno, cada um com um tipo independente.

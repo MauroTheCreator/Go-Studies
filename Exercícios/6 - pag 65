@@ -1,0 +1,118 @@
+1. sum é uma função que pega um slice de números e adiciona eles juntos, como essa função pareceria em Go?
+
+A melhor implementação pra essa função é essa, pois, assim ela suporta slices e argumentos múltiplos de uma só
+vez, sem contar que ela será realmente rápida.
+
+    func sum(slice ...int) (res int) {
+        for _, number := range slice {
+            res += number
+        }
+        return
+    }
+
+2. Escreva uma função que divide um número por dois e retorna true caso ele for par e false caso ele
+for impar.
+
+    func halves(n int) (res, isEven int) {
+        if n % 2 == 0 { res, isEven = n / 2, true }
+        else { res, isEven = 0, false }
+        return
+    }
+
+3. Escreva uma função variadica que encontra o maior parâmetro passada para ela.
+
+    func max(values ...int) (mx int) {
+        mx = values[0]
+        for _, v := range values {
+            if v > mx { mx = v }
+        }
+        return
+    }
+
+4. Usando o exemplo de makeEvenGenerator faça um makeOddGenerator.
+
+    func makeOddGen() func() uint {
+        i := uint(1)
+        return func() (res uint) {
+            res = i
+            i += 2
+            return
+        }
+    }
+
+5. Escreva uma função recursiva que pode achar o número de fibonacci fib(n).
+
+    func fib(n uint) uint {
+        if n == 0 {
+            return 0
+        } else if n == 1 {
+            return 1
+        } else {
+            return fib(n-1) + fib(n-2)
+        }
+    }
+
+6. O que são defer, panic e recover? Como você se recupera de um panic?
+
+Um defer é um "agendador" de chamadas de funções, basicamente ele joga a chamada da função
+para o último lugar e executa ela apenas quando a função executando no momento estiver para
+acabar. Vejamos:
+
+    f := os.Open(filename)
+    defer f.Close()
+
+Nós abrimos e agendamos o fechamento do arquivo, isso facilita a leitura e interpretação do código
+fonte e também garante que o arquivo será fechado.
+
+Panic é uma função que retorna um erro de runtime, panics podem ser evitados com resolves. Mas apenas
+da seguinte forma:
+
+    defer func() {
+        str := resolve()
+    }()
+    panic("panic")
+
+Assim, o defer agenda essa função anonima e ela pode rodar mesmo com um erro de runtime, se um resolve
+roda num erro de runtime ele pode consertar o erro. Mas o seguinte código não funcionaria:
+
+    panic("panic")
+    str := resolve()
+
+Pois resolve() nunca seria chamada.
+
+7. Como você consegue o endereço de memória de uma variável?
+
+    &variavel
+
+8. Como você associa um valor a um ponteiro?
+
+    *Ptr = value
+
+9. Como você cria um novo ponteiro?
+
+    ptr := new(type) // ou
+    ptr := &variavel // agora ptr é um endereço de memória do tipo *int
+    var ptr *int = &variavel // assim declaramos de forma longa, porém
+                            // evitamos problemas com tipos
+
+10. O que aconteceria depois de rodar o código seguinte:
+
+    func square(x *float64) {
+        *x = *x * *x
+    }
+
+    func main() {
+        a := float64(10)
+        square(&a)
+        fmt.Println(a)
+    }
+
+O número a agora em vez de ser 10 será 100, pois a função square eleva o número ao quadrado.
+
+11. Escreva uma função que vai trocar o valor de dois números. swap().
+
+    func swap(a, b *int) {
+        c := *a
+        *a = *b
+        *b = c
+    }

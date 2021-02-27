@@ -2,16 +2,12 @@ package main
 
 import "fmt"
 
-func sum(a int, b int) int {
-	return a + b
+func square(x *float64) {
+	*x = *x * *x
 }
 
 func main() {
-	fmt.Println(name)
-	if 1 == 1 {
-		// comandos
-	} else if 2 == 2 {
-		// mais comandos
-	}
+	a := float64(10)
+	square(&a)
+	fmt.Println(a)
 }
-var name = "uma string qualquer"

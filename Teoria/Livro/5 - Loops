@@ -1,0 +1,56 @@
+Os loops em Go são diferentes de C por um motivo principal: eles não tem parênteses nas variáveis de
+controle ou condição de controle.
+
+Como por exemplo, o for, ele é assim:
+
+    for i := 1; i <= 10; i++ {
+        // comandos
+    }
+
+E não assim:
+
+    for (i := 1; i <= 10; i++) {
+        // comandos
+    }
+
+Agora vamos lá, o for é o único loop nesse estilo do Go, não existe while. Exatamente, não existe while.
+
+Como podemos usar apenas a condicional no loop for, então o loop for é o próprio while do Go. Por exemplo:
+
+    while (true) {
+        // comandos
+    }
+
+Em Go, seria:
+
+    for true {
+        // comandos
+    }
+
+De quebrar a cabeça, correto? Mas fora isso nada muda, podemos utilizar o for tranquilamente quando
+for necessário.
+
+CONDICIONAIS:
+
+As condicionais em Go tem essa mesma dinâmica, elas não tem parênteses e são muito legíveis. Veja:
+
+    if 1 == 1 {
+		// comandos
+	} else if 2 == 2 {
+		// mais comandos
+	} else {
+        // mais comandos ainda
+    }
+
+Aí topamos com um problema básico das condicionais, muitos else if's no programa. Pra esse caso usamos a
+estrutura de controle switch (sim, temos o switch no Go), que tem a sintaxe:
+
+    switch variável {
+        case valor:
+            // comandos
+        ...
+        default:
+            // comandos
+    }
+
+Simples e fácil de entender, próximo.
