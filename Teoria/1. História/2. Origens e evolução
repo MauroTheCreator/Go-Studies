@@ -1,0 +1,38 @@
+O ano de gênesis da Go foi em 2007, e o ano de seu lançamento público foi em 2009. O design
+inicial de Go começou em 2007 como um projeto de 20% tempo-total investido da Google por
+três engenheiros de software conhecidos.
+
+Go foi promovida à linguagem do ano de 2009 pela Tiobe.
+
+LINGUAGENS QUE INFLUENCIARAM GO
+
+Go é uma linguagem que foi desenhada da base como se fosse o "C para o século 21". Ela pertence
+à família da linguagem C, como C++, Java, C#, e inspirou muitas outras linguagens criadas e usadas
+pelos seus designers.
+
+Go é uma linguagem de programação completamente open-source, distribuída com a licença BSD, então
+pode ser usada por qualquer um, até mesmo com intuitos comerciais, e pode ser modificada por outras
+pessoas também.
+
+CARACTERÍSTICAS DA LINGUAGEM
+
+Go, em síntese é uma linguagem estruturada, construída com concorrẽncia na mente. Não é uma linguagem
+orientada a objetos como Java e C++, pois não tem nenhum tipo de herança ou classes. Entretanto, tem
+o conceito de interfaces, que com ela pode ser realizado muito polimorfismo. Go tem umm sistema de tipos
+expressivos e limpos, mas são leves e não possuem hierarquia. Então por respeito podemos chamar Go de uma
+linguagem híbrida.
+
+RECURSOS QUE FALTAM NA LINGUAGE
+
+A linguagem não tem alguns recursos, tais como:
+
+1. Overload de funções/operadores (pra simplificar o design)
+2. Sem conversões de tipos inplícitas
+3. Sem classes e herança de tipos
+4. Sem tipos variantes
+5. Sem código carregado dinamicamente
+6. Sem bibliotecas dinâmicas
+7. Sem genéricos
+8. Sem exceptions
+9. Sem asserts
+10. Sem variáveis imutáveis

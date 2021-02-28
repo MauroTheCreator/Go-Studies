@@ -1,0 +1,7 @@
+As variáveis de ambiente da Go são:
+
+$GOROOT - geralmente tem o valor de $HOME/go, mas você pode mudar isso na instalação
+$GOARCH - a arquitetura do processador da máquina alvo
+$GOOS - sistema operacional da máquina alvo
+$GOBIN - localização onde os binários (compilados, linkers, etc.) estão instalados, o padrão é $GOROOT/bin
+

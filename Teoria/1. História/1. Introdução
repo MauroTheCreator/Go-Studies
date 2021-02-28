@@ -1,0 +1,17 @@
+Os parâmetros para o design da linguagem Go foram baseados em problemas que programadores tinham com C++, principalmente
+na programação de servidores. Os binários eram grandes e demoravam para compilar, sem contar que a linguagem é um tanto
+quanto velha. Então eles começaram o design se fundamentando nos seguintes critérios:
+
+1. Software precisa ter uma build rápida
+2. A linguagem precisa rodar bem em hardware multi-core modernos
+3. A linguagem precisa rodar bem em um ambientes de rede
+4. A linguagem precisa  ser prazerosa de usar
+
+Então nasceu Go, a linguagem que tem o mesmo sentimento de dinamicidade que Python/Ruby, mas tem performance de linguagens
+mais seguras como C ou Java.
+
+Go é uma linguagem que procura reinventar a programação da maneira mais prática, não é uma linguagem fundamentalmente nov
+com uma sintaxe estranha e conceitos arcaicos. Propõe interfaces para programação orientada a objetos e goroutines (corotinas)
+e channels pra programação paralela/concorrente.
+
+"Go é o C moderno".
