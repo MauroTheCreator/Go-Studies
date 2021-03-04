@@ -1,0 +1,46 @@
+Variáveis contém dados, e esses dados podem ser de tipos diferentes. A declaração de uma variável começa com "var", que inicia
+a variável automaticamente com o valor zero. Logo depois temos o identificador da variável e o seu tipo;
+
+    var minha_string string
+
+Tipos podem ser:
+- Primitivos (int, bool, float, string, etc.)
+- Estruturados ou compostos (struct, array, slice, map, channel)
+- Interfaces (que só descrevem o comportamento de um tipo, nós vamos chegar lá)
+
+Um tipo estruturado que ainda não tem valor definido é pré-definido com o valor nil. Que é o valor-padrão para esses tipos. Não
+existe hierarquia de tipos.
+
+Funções também tem um certo tipo, um tipo de retorno. Esse é o tipo de uma variável que é retornado pela função, esse tipo é escrito
+depois da função, assim:
+
+    func FunctionName(a typea, b typeb) typeFunc {
+        ...
+    }
+
+Em algum lugar dessa função, existe o comando:
+
+    return identificador
+
+que retorna o valor desse identificador para quem chamou a função, esse identificador é do mesmo tipo typeFunc.
+
+Use o comando "type" para criar seu próprio tipo. Você vai provavelmente querer definir uma estrutura de tipos, mas também é
+possível declarar um alias para um tipo:
+
+    type IZ int
+
+E quando declararmos uma variável podemos fazer:
+
+    var a IZ = 5
+
+Nós chamamos isso de "underlying types", é o que faz a conversão entre tipos ser possível em uma linguagem estaticamente tipada.
+
+Se você tem mais de um tipo pra definir, você pode fazer assim:
+
+    type (
+        IZ int
+        FZ float
+        STR string
+    )
+
+Go é uma linguagem estaticamente tipada, lembre-se disso.

@@ -1,0 +1,20 @@
+Código limpo, legível e simples (mas poderoso) é o principal objetivo do desenvolvimento com Go. Nomes de coisas em Go devem ser
+curtos, concisos, evocativos. Nomes longos com caps e underlines misturados são vistos bastante em código Java ou Python.
+
+Use sempre que possível o CamelCase. Como por exemplo:
+
+    func GetMessagesFromChannel() (messages map[string]map[string]string) {
+        // ...
+    }
+
+    ou
+
+    func getMessagesFromChannel() (messages map[string]map[string]string) {
+        // ...
+    }
+
+E tente não usar nomes com underlines. Assim:
+
+    func get_messages_from_channel() (messages map[string]map[string]string) {
+        // ...
+    }

@@ -1,0 +1,64 @@
+Uma constante contém dado que não podem ser mudado. Esse dado só pode ser do tipo boolean, numérico (float, int, complex) ou
+string.
+
+Você pode definir:
+
+    const identificador [tipo] = valor, por exemplo const Pi = 3.14159
+
+O especificador de tipo é opcional, você pode deixar o tipo implícito ou explícito. Vale lembrar que constantes tem que ser
+avaliadas em tempo de compilação, ou seja:
+
+    isso está ok: const id = "user_name"
+    isso não está ok: const id = getID()
+
+A função é chamada em tempo de execução, e não de compilação. Você terá um erro de build (getID() used as value).
+
+Constantes numéricas não tem tamanho ou sinal, elas podem ser de alta precisão arbitrária e não sobrecarregam o programa:
+
+    const Ln2 = 0.693147180559945309417232121458\
+                176568075500134360255254120680009
+    const Billion = 1e9
+    const hardEight = (1 << 100) >> 97
+
+Como demonstrado, '\' pode ser usado como caractere de continuação em uma constante.
+
+Diferente de variáveis numéricas de tipos diferentes, ĉom constantes você não precisa se preocupar com conversões de tipo: elas
+são como os números ideais.
+
+Constantes podem sobrecarregar apenas quando elas são atribuidas a uma variável numérica com muita pouca precisão para
+representar o valor, isso resulta em um erro de compilação. Atribuição múltipla de constantes é permitida, assim:
+
+    const beef, two, c = "meat", 2, "veg"
+    const Monday, Tuesday, Wednesday, Thursday, Friday, Saturday = 1, 2, 3, 4, 5, 6
+
+    const (
+        Monday, Tuesday, Wednesday = 1, 2, 3
+        Thursday, Friday, Saturday =  4, 5, 6
+    )
+
+Constantes podem ser utilizadas para enumeração:
+
+    const (
+        Unknown = 0
+        Female = 1
+        Male = 2
+    )
+
+Unknown, Female e Male são agora, apelidos para 0, 1 e 2. Em alguns casos, o valor iota é utilizado par enumerar os valores:
+
+    const (
+        Unknown = iota
+        Female = iota
+        Male = iota
+    )
+
+O primeiro uso de iota nos dá 0, qualquer hora que o iota for utilizado em alguma outra linha ele vai aumentar em 1 unidade. Ou seja
+a = 0, b = 1 e c = 2:
+
+    const (
+        a = iota
+        b
+        c
+    )
+
+Constantes que não tiveram um valor definido terão o valor do iota acima delas (como mostrado no exemplo acima).

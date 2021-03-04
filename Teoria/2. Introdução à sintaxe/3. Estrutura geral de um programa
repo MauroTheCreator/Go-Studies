@@ -1,0 +1,32 @@
+O programa a seguir compila mas não faz nada de útil. Porém, ele mostra perfeitamente a estrutura de um programa em Go:
+
+    package main
+
+    import (
+        "fmt"
+    )
+
+    const c = "C"
+
+    var v int = 3
+
+    type T struct{}
+
+    func init() {} // inicialização de um pacote
+
+    func (t T) Method1() {
+        //...
+    }
+
+    func Func1() { // função que será exportada
+        //...
+    }
+
+A ordem de execução do programa é a seguinte:
+
+1. Todos os pacotes dentro do pacote main são importados na ordem que são indicados.
+2. Se esse pacote importa outro pacote, esse pacote irá para main (recursividade), mas main só importa
+pacotes UMA VEZ.
+3. Então, para cada pacote (em ordem contrária), todas as constantes e variáveis são avaliadas, e a função init()
+se conter essa função
+4. Por fim, o mesmo acontece com o pacote main e main() começa a executar.

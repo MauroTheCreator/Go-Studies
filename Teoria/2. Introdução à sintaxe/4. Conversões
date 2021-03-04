@@ -1,0 +1,17 @@
+Se necessário e possível um valor pode ser convertido em um valor de outro tipo. Go nunca converte tipos de forma automática,
+isso precisa ser feito de forma explícita, o programador tem que converter eles manualmente. Com a sintaxe parecida com uma chamada
+de função:
+
+    valorDeTipoB = tipoB(valorDeTipoA)
+
+E.g.
+    a := 5.0
+    b := int(a)
+
+O problema é que isso apenas funciona em casos bem definidos. Se convertermos, por exemplo, um float64 para um float32, ou um int64
+para um int32 a perda de valor pode acontecer. Variáveis com o mesmo tipo substituto (type something int) podem ser convertidas
+uma nas outras:
+
+    type IZ int
+    c := int(1)
+    d := IZ(c)

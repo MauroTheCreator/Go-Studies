@@ -1,0 +1,33 @@
+Comentários na linguagem Go são literalmente iguais aos da linguagem C/C++.
+
+    // Comentário de linha única
+
+    /*
+    Comentário de múltiplas linhas
+    */
+
+Comentários são utilizados para fazer documentação e anotações dentro do código.
+
+Em projetos, todo pacote (package) tem que ter um comentário de pacote nas primeiras linhas, veja o exemplo:
+
+
+    // Package superman implements methods for saving the world
+    //
+    // Experience has shown that a small numbers of procedures can prove helpful
+    // when attempting to save the world.
+    package superman
+
+Para programadores que usam Python, isso é a mesma coisa que as docstrings no começo de um pacote, só que em
+Go.
+
+Cada tipo top-level de Go, const, var, func, e certamente todo nome exportado do programa tem que ter um comentário.
+Esse comentário é chamado de "doc comment", aparece na linha precedente de uma função, e para uma função Abcd o comentário
+tem que começar com Abcd...
+
+E.g
+
+    // enterOrbit causes Superman to fly into low Earth orbit, a position
+    // that presents several possibilities for planet salvation.
+    func enterOrbit() error {
+        ...
+    }
