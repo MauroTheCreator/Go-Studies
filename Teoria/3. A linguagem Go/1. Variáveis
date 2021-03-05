@@ -1,0 +1,41 @@
+A forma geral de declarar uma variável em Go é usando a palavra-chave var: var identificador tipo
+
+É importante notar que o tipo é escrito depois do identificador da variável, ao contrário de muitas outras linguagens de
+programação. Por que os designers de Go fizeram isso?
+
+Primeiro, isso remove algumas ambiguidades que podem existir nas declarações C, como: int* a, b;
+Apenas a é um ponteiro, e b não é. Em função de declarar ambas ponteiros, o asterisco precisa ser repetido (para uma discussão
+maior sobre esse tópico: http://blog.golang.org/2010/07/gos-declaration-syntax.html)
+
+Entretanto, ambas podem ser declaradas como ponteiros em Go, assim: var a, b *int
+
+Segundo, é melhor para ler da esquerda pra direita, então é mais fácil de entender:
+
+    var a int // variável a é um inteiro
+    var b bool
+    var str string
+
+E pode ser escrita assim:
+
+    var (
+        a int 
+        b bool
+        str string   
+    )
+
+Essa forma (usando a palavra-chave var) é geralmente utilizada para declarar variáveis globais.
+
+Quando uma variável é declarada, ela contém o valor nulo de seu tipo (bool: false, int: 0, string: "", e assim por diante). Toda
+a memória em Go é inicializada, nada não é utilizado.
+
+A nomeação de identificadores em Go para variáveis segue o padrão camelCase (começa com uma letra menor e cada nova parte de uma
+palavra começa com uma letra maiúscula), como: startSequence, messagesFromChannel, startDate, etc.
+
+Mas se uma variável tem que ser exportada, então ela começa com uma letra maiúscula (assim como todo nome, se um nome começa com
+uma letra maiúscula em Go ele é exportado). Variáveis, constantes, funções, etc., estão em uma parte do código que é chamada de
+escopo. Variáveis ou qualquer coisa que seja declarada fora de todas as funções do programa é um nome global, qualquer função
+em qualquer lugar consegue utilizar esse nome.
+
+Variáveis declaradas dentro de uma função tem o escopo local, elas só podem ser utilizadas dentro da função declarada.
+
+Você pode atribuir valores em variáveis depois que declará-las utilizando o operador de atribuição.
