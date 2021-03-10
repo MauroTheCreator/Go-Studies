@@ -1,0 +1,23 @@
+    package main
+
+    import "fmt"
+
+    func main() {
+        fmt.Println("Hello world")
+    }
+
+1. Pacotes, imports e visibilidade
+
+Pacotes são maneiras de estruturas o código, um programa é construído como um "pacote" (frequentemente atribuído ao termo "pkg")
+que deixa ele mais fácil de usar em outros pacotes (programas).
+
+Todo arquivo Go pertence à um, e apenas um pacote (como uma biblioteca ou um namespace em outras linguagens). Vários .go podem ir
+para o mesmo pacote, então os nomes dos arquivos e pacotes geralmente não são os mesmos.
+
+O pacote que o arquivo .go pertence deve ser indicado no começo do arquivo, exemplo: package main
+Um executável standalone (único) pertence ao pacote main. Cada aplicação Go possui um pacote chamado main.
+
+Uma aplicação consiste de diferentes pacotes, mas mesmo se você usar apenas um pacote main você não precisaa colocar tudo em
+um arquivo .go gigante: você pode fazer um número de arquivos pequenos cada um contendo "package main" na primeira linha de código.
+Se você compilar o código fonte com um package-name diferente de main, como pack1, o arquivo objeto será armazenado em pack1.a,
+o nome de um pacote é escrito em letras minúsculas.

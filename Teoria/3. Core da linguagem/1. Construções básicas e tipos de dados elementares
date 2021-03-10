@@ -1,0 +1,89 @@
+1. Nomes de arquivos, palavras-chave, identificadores.
+
+Código fonte Go é armazenado em arquivos .go, esses filenames consistem de letras minúsculas, como scanner.go. Se o nome
+possui múltiplas partes, ele é separado por underlines, como por exemplo, scanner_test.go
+
+Arquivos de código fonte tem linhas de código, elas não tem limite intrínseco.
+
+Praticamente todas as coisas dentro do código Go tem um nome, ou um identificador. Go, como todas as linguagens
+na linguagem C, é case-sensitive. Identificadores válidos começam com uma letra (qualquer letra no UTF-8 ou _) e
+segue por 0 ou mais letras de dígitos unicode, como x56, group1, _x23, өԑ12
+
+Os seguintes identificadores não são válidos
+    1ab (começa com número)
+    a+b (usa um operador no nome)
+
+Existe um set de 25 palavras reservadas em Go, são elas:
+
+    break
+    case
+    chan
+    const
+    default
+    defer
+    else
+    fallthrough
+    func
+    go
+    goto
+    if
+    interface
+    map
+    package
+    range
+    select
+    struct
+    switch
+    type
+    continue
+    for
+    import
+    return
+    var
+
+Você não pode usar esses nomes como identificadores de funções, variáveis, estruturas, tipos, etc. Além das palavras reservadas
+de Go, ela tem mais 36 identificadores pré-definidos (praticamente todos são tipos):
+
+    append
+    copy
+    int32
+    print
+    bool
+    false
+    int64
+    println
+    byte
+    float32
+    iota
+    real
+    cap
+    float64
+    len
+    recover
+    close
+    imag
+    make
+    string
+    complex
+    int
+    new
+    true
+    complex64
+    int8
+    nil
+    uint
+    complex128
+    int16
+    panic
+    uint8
+    uint16
+    uint32
+    uint64
+    uintptr
+
+Programas consistem de palavras-chave, constantes, variáveis, operadores, tipos e funções. Os delimitadores de bloco de código
+da linguagem são os (), [], {}. Os seguintes caracteres de pontuação "...", "::" e "." são utilizados.
+
+Còdigo Go é estruturado em declarações, uma declaração não precisa terminar com um ; como em outras linguagens da família C. O
+compilador Go coloca ; automaticamente em todas as semicolunas (\n) de todas as declarações. Entretanto, se várias declarações
+forem escritas em uma linha, elas precisam ser separadas por ;

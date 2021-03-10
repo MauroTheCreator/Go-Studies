@@ -1,0 +1,23 @@
+Mano, eu acabei de descobrir como fazer pacotes com go e eu to chocado
+
+
+seguinte, a gente tem o comando
+
+    go install  
+
+que instala um pacote pra vc, esse pacote é suave, dboa
+
+mas seguinte, se tu quiser criar o teu próprio pacote, tens que fazer assim
+
+primeiro: cria um folder dentro de $GOROOT/src
+
+esse folder é o folder do teu pacote, quando tu roda go install <package_name>
+esse comando vai procurar o nome do pacote dentro de src, se ele achar esse pacote
+ele vai compilar, mas é o seguinte:
+
+1. Se ele achar um package main em alguma primeira linha do teu código, ele vai compilar tudo e mandar um
+.exe pra $GOBIN
+
+2. Se ele não achar nenhum package main em nenhum arquivo dentro de <package_name>, então ele
+vai "compilar" tudo e mandar um .a pra $GOROOT/pkg/linux_amd64, aí se tu quiser usar esse package
+em qualquer projeto, é só tu dar um import "<package_name>" e tu vai poder usar
